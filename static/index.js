@@ -435,11 +435,11 @@ function backBtn() {
 function shareText(score) {
 
     deviation_time = (date2.getTime() - _date1.getTime())
-    if (score <= 2.5 * __Time) return '加油！我相信您可以的！';
-    if (score <= 5 * __Time) return '^_^ 加把劲，底力大王就是您！';
-    if (score <= 7.5 * __Time) return '您！';
-    if (score <= 10 * __Time) return '太 您 了！';
-    return '您是外星人嘛？';
+    if (score <= 2.5 * __Time) return 'Σ(っ °Д °;)っ搞屁啦！';
+    if (score <= 5 * __Time) return '你丢了我一次，你又丢我一次。';
+    if (score <= 7.5 * __Time) return '靠谱的成年男性！（？）';
+    if (score <= 10 * __Time) return '还有这样的操作吗？！';
+    return 'Σ(っ °Д °;)っ老不死人了！';
 }
 
 function toStr(obj) {
