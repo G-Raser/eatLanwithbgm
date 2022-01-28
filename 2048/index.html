@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>2048 html5小游戏</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta
+      name="viewport"
+      content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/bind_polyfill.js"></script>
+    <script src="js/classlist_polyfill.js"></script>
+    <script src="js/animframe_polyfill.js"></script>
+    <script src="js/keyboard_input_manager.js"></script>
+    <script src="js/html_actuator.js"></script>
+    <script src="js/grid.js"></script>
+    <script src="js/tile.js"></script>
+    <script src="js/local_storage_manager.js"></script>
+    <script src="js/game_manager.js"></script>
+    <script src="js/application.js"></script>
+  </head>
+
+  <body>
+    <!--游戏页面-->
+    <div class="container">
+      <div class="heading">
+        <h1 class="title">2048</h1>
+        <div class="scores-container">
+          <div class="score-container">0</div>
+          <div class="best-container">0</div>
+        </div>
+      </div>
+
+      <div class="above-game">
+        <a class="restart-button" id="restart">重新开始</a>
+      </div>
+
+      <div class="game-container">
+        <div class="game-message">
+          <p></p>
+          <div class="lower">
+            <a class="keep-playing-button">Keep going</a>
+            <a class="retry-button">再玩一次</a>
+          </div>
+        </div>
+
+        <div class="grid-container">
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+        </div>
+
+        <div class="tile-container"></div>
+      </div>
+    </div>
+
+    <!--开始界面-->
+    <div class="startWrap">
+      <a class="restart-button" id="startBtn"></a>
+    </div>
+
+    <!--音乐播放-->
+    <audio
+      autoplay="autoplay"
+      loop="loop"
+      preload="auto"
+      src="sound/0.mp3"
+      id="music"
+    >
+      你的浏览器不支持audio标签
+    </audio>
+
+    <!--音乐按钮-->
+    <a href="javascript:void(0)" class="musicBrn onmusic"></a>
+
+    <script>
+      $(document).ready(function() {
+        var height = document.documentElement.clientHeight * 0.62;
+        $("#startBtn").css({
+          top: height
+        });
+
+        // 开始游戏事件
+        $("#startBtn").click(function() {
+          $(".startWrap").hide();
+        });
+
+        $(".musicBrn").click(function() {
+          var music = document.getElementById("music");
+          if (music.paused) {
+            music.play();
+            $(this)
+              .removeClass("ofmusic")
+              .addClass("onmusic");
+          } else {
+            music.pause();
+            $(this)
+              .addClass("ofmusic")
+              .removeClass("onmusic");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
